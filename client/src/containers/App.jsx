@@ -6,6 +6,7 @@ import { getAllEmployeeAvailabilities } from '../actions/index';
 import { getAllDayParts } from '../actions/index';
 
 import EmployeeEditor from './EmployeeEditor.jsx';
+import ScheduleGenerator from './ScheduleGenerator.jsx';
 
 class App extends Component {
 
@@ -17,8 +18,9 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div> 
         <EmployeeEditor />
+        <ScheduleGenerator />
       </div>
     );
   }
