@@ -57,8 +57,8 @@ const mapStateToProps = (state) => {
   }
   
   return {
-    dayPartsMap: dayPartsMap,
-    employees: employees,
+    dayPartsMap,
+    employees,
   };
   
 };
