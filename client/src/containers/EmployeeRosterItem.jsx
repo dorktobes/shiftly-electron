@@ -22,7 +22,7 @@ const EmployeeRosterItem = (props) => {
 };
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({selectEmployee: selectEmployee}, dispatch);
+  return bindActionCreators({ selectEmployee }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(EmployeeRosterItem);
