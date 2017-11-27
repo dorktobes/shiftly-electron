@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addEmployee } from '../actions/index';
-import { leaveAddEmployee } from '../actions/index';
-// import FlashMessage from '../components/FlashMessage.jsx';
+import { addEmployee, leaveAddEmployee } from '../actions/index';
 
 import PropTypes from 'prop-types';
 
@@ -50,8 +48,8 @@ class AddEmployee extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    addEmployee: addEmployee,
-    leaveAddEmployee: leaveAddEmployee,
+    addEmployee,
+    leaveAddEmployee,
   }, dispatch);
 }
 
