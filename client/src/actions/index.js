@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getAllUsers = () => {
-  const response = axios.get('/users');
+  const response = axios.get('http://127.0.0.1:8080/users');
 
   return {
     type: 'GET_USERS',
@@ -10,7 +10,7 @@ const getAllUsers = () => {
 };
 
 const getAllScheduleDates = () => {
-  const response = axios.get('/schedule_dates');
+  const response = axios.get('http://127.0.0.1:8080/schedule_dates');
 
   return {
     type: 'GET_SCHEDULE_DATES',
@@ -19,7 +19,7 @@ const getAllScheduleDates = () => {
 };
 
 const getAllEmployeeAvailabilities = () => {
-  const response = axios.get('/employee_availabilities');
+  const response = axios.get('http://127.0.0.1:8080/employee_availabilities');
 
   return {
     type: 'GET_EMPLOYEE_AVAILABILITIES',
@@ -28,7 +28,7 @@ const getAllEmployeeAvailabilities = () => {
 };
 
 const getAllDayParts = () => {
-  const response = axios.get('/day_parts');
+  const response = axios.get('http://127.0.0.1:8080/day_parts');
 
   return {
     type: 'GET_DAY_PARTS',
@@ -38,7 +38,7 @@ const getAllDayParts = () => {
 
 
 const getAllNeededEmployees = () => {
-  const response = axios.get('/needed_employees');
+  const response = axios.get('http://127.0.0.1:8080/needed_employees');
 
   return {
     type: 'GET_NEEDED_EMPLOYEES',
@@ -48,7 +48,7 @@ const getAllNeededEmployees = () => {
 
 
 const generateSchedule = (mondayDate) => {
-  const response = axios.post('/generate_schedule', { mondayDate });
+  const response = axios.post('http://127.0.0.1:8080/generate_schedule', { mondayDate });
 
   return {
     type: 'GET_ACTUAL_SCHEDULE',
@@ -57,7 +57,7 @@ const generateSchedule = (mondayDate) => {
 };
 
 const addEmployee = (username, password) => {
-  const response = axios.post('/add_employee', { username, password });
+  const response = axios.post('http://127.0.0.1:8080/add_employee', { username, password });
   return {
     type: 'ADD_EMPLOYEE',
     payload: response,
@@ -79,7 +79,7 @@ const updateEmployeeAvailability = (employee, newAvailabilities) => {
     };
   });
 
-  const response = axios.patch('/employee_availability', {
+  const response = axios.patch('http://127.0.0.1:8080/employee_availability', {
     employeeAvailabilities: requestBody,
   });
 
@@ -94,7 +94,7 @@ const updateNeededEmployees = (schedule, newAvailabilities) => {
     return { schedule_id: schedule.id, day_part_id: dayPartId, employees_needed: newAvailabilities[dayPartId] };
   });
 
-  const response = axios.patch('/needed_employees', {
+  const response = axios.patch('http://127.0.0.1:8080/needed_employees', {
     scheduleAvailabilities: requestBody,
   });
 
@@ -111,7 +111,7 @@ const createScheduleTemplate = (monDate, scheduleTemplate) => {
       employees_needed: scheduleTemplate[dayPartId] };
   });
 
-  const response = axios.post('/needed_employees', {
+  const response = axios.post('http://127.0.0.1:8080/needed_employees', {
     scheduleTemplate: requestBody
   });
 
@@ -129,7 +129,7 @@ const changeView = (newView) => {
 };
 
 const login = (creds) => {
-  const response = axios.post('/login', { creds })
+  const response = axios.post('http://127.0.0.1:8080/login', { creds })
   return {
     type: 'GET_ALL',
     payload: response,
@@ -137,7 +137,7 @@ const login = (creds) => {
 };
 
 const signUp = (creds) => {
-  const response = axios.post('/signup', { creds });
+  const response = axios.post('http://127.0.0.1:8080/signup', { creds });
   return {
     type: 'GET_ALL',
     payload: response,
@@ -145,7 +145,7 @@ const signUp = (creds) => {
 };
 
 const logout = () => {
-const response = axios.post('/logout');
+const response = axios.post('http://127.0.0.1:8080/logout');
 
   return {
     type: 'REMOVE_LOGGED_IN_DETAILS',
@@ -154,7 +154,7 @@ const response = axios.post('/logout');
 };
 
 const checkedIfLoggedIn = () => {
-  const response = axios.get('/welcome_back');
+  const response = axios.get('http://127.0.0.1:8080/welcome_back');
 
   return {
     type: 'GET_ALL',
